@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Sackers Gothic Medium";
+  src: url(../assets/fonts/sackersgothicstd-medium.otf);
+}
+
+@font-face {
+  font-family: "Sackers Gothic Heavy";
+  src: url(../assets/fonts/sackersgothicstd-heavy.otf);
+}
+
+:root {
+  --primary-color: #1c1f28;
+  --secondary-color: #d5b35f;
+  --third-color: #faf8f3;
+  --primary-font-medium: "Sackers Gothic Medium", sans-serif;
+  --primary-font-heavy: "Sackers Gothic Heavy", sans-serif;
+  --secondary-font: "Noto Sans", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--third-color);
+}
+
+img {
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-family: var(--primary-font-heavy);
+}
+
+.subtitle-secondary-color {
+  color: var(--secondary-color);
+}

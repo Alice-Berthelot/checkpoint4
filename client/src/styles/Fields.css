@@ -1,0 +1,14 @@
+.fields-section {
+  background-color: var(--primary-color);
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin: 10rem auto;
+}
+
+.fields-article {
+  width: 80%;
+  border: 1px solid var(--secondary-color);
+  display: flex;
+  justify-content: center;
+}
