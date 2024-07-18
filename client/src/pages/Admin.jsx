@@ -1,24 +1,28 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 import "../styles/Admin.css";
 
 function Admin() {
   const appointments = useLoaderData();
 
+  // const sortedAppointments = appointments.sort((a, b) => {
+  //   return (a.status === "confirmed") - (b.status === "confirmed");
+  // });
+
   const [selectedField, setSelectedField] = useState("");
-  const [activeButton, setActiveButton] = useState(null); // État pour suivre le bouton actif
+  const [activeButton, setActiveButton] = useState(null);
 
   const allFields = appointments.map((appointment) => appointment.field_name);
   const fields = [...new Set(allFields)];
 
   const handleFilter = (field) => {
     setSelectedField(field);
-    setActiveButton(field); // Met à jour le bouton actif
+    setActiveButton(field);
   };
 
   const handleResetFilters = () => {
     setSelectedField("");
-    setActiveButton(null); // Réinitialise le bouton actif à null
+    setActiveButton(null);
   };
 
   return (
@@ -50,8 +54,18 @@ function Admin() {
               selectedField === "" || appointment.field_name === selectedField
           )
           .map((appointment) => (
-            <article key={appointment.appointment_id} className="admin-cards">
-              <p>{appointment.time_slot_datetime}</p>
+            <article
+              key={appointment.appointment_id}
+              className={
+                appointment.status === "confirmed"
+                  ? "admin-cards-confirmed"
+                  : "admin-cards"
+              }
+            >
+              {appointment.status === "confirmed" && (
+                <p className="admin-confirmed-sentence">Confirmé</p>
+              )}
+              <p>Date : {appointment.time_slot_datetime}</p>
               <p>
                 Avocat : {appointment.lawyer_firstname}{" "}
                 {appointment.lawyer_lastname}
@@ -60,6 +74,28 @@ function Admin() {
                 Client : {appointment.client_firstname}{" "}
                 {appointment.client_lastname}
               </p>
+              <p>Note : {appointment.note}</p>
+              <section className="admin-section-forms">
+                {appointment.status !== "confirmed" && (
+                  <Form method="put">
+                    <input type="hidden" name="status" value="confirmed" />
+                    <input
+                      type="hidden"
+                      name="appointmentId"
+                      value={appointment.appointment_id}
+                    />
+                    <button type="submit">Confirmer</button>
+                  </Form>
+                )}
+                <Form method="delete">
+                  <input
+                    type="hidden"
+                    name="appointmentId"
+                    value={appointment.appointment_id}
+                  />
+                  <button type="submit">Supprimer</button>
+                </Form>
+              </section>
             </article>
           ))}
       </section>

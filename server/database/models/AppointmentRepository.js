@@ -49,6 +49,24 @@ class AppointmentRepository extends AbstractRepository {
     );
     return result.insertId;
   }
+
+  async update(appointment) {
+    const [result] = await this.database.query(
+      `update ${this.table} set status = ? where id = ?`,
+      [appointment.status, appointment.id]
+    );
+
+    return result.affectedRows;
+  }
+
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    return result.affectedRows;
+  }
 }
 
 module.exports = AppointmentRepository;

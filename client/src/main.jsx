@@ -103,6 +103,52 @@ const router = createBrowserRouter([
         path: "/admin",
         element: <Admin />,
         loader: () => fetchApi(baseAppointmentsUrl),
+        action: async ({ request }) => {
+          try {
+            const formData = await request.formData();
+            const status = formData.get("status");
+            const appointmentId = formData.get("appointmentId");
+
+            switch (request.method.toUpperCase()) {
+              case "PUT": {
+                const appointmentResponse = await sendData(
+                  `${baseAppointmentsUrl}/${appointmentId}`,
+                  { status },
+                  request.method.toUpperCase()
+                );
+                if (appointmentResponse) {
+                  return redirect("/admin");
+                }
+                throw new Error(
+                  `Failed to update appointment: ${appointmentResponse.statusText}`
+                );
+              }
+
+              case "DELETE": {
+                const appointmentDelete = await fetch(
+                  `${import.meta.env.VITE_API_URL}${baseAppointmentsUrl}${appointmentId}`,
+                  {
+                    method: "DELETE",
+                  }
+                );
+
+                if (appointmentDelete.ok) {
+                  return redirect("/admin");
+                }
+                throw new Error(
+                  `Failed to delete appointment: ${appointmentDelete.statusText}`
+                );
+              }
+
+              default: {
+                throw new Error("Unsupported method");
+              }
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            return null;
+          }
+        },
       },
     ],
   },

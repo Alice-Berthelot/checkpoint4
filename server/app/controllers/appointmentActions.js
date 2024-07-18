@@ -9,6 +9,16 @@ const browse = async (req, res, next) => {
   }
 };
 
+const edit = async (req, res, next) => {
+  const appointment = { ...req.body, id: req.params.id };
+  try {
+    await tables.appointment.update(appointment);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   
   const appointment = req.body;
@@ -21,7 +31,18 @@ const add = async (req, res, next) => {
   }
 };
 
+const destroy = async (req, res, next) => {
+  try {
+    await tables.appointment.delete(req.params.id);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
+  edit,
   add,
+  destroy,
 };

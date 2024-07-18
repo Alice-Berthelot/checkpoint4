@@ -18,11 +18,31 @@
 
 .fields-subtitle {
   grid-column: 1/3;
+  margin-bottom: 4rem;
+}
+
+.fields-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .fields-icon-1 {
   grid-column: 2/3;
   grid-row: 2/3;
+  margin-left: 3.5rem;
+  width: 8rem;
+}
+
+.fields-icon-2,
+.fields-icon-3 {
+  margin-right: 3rem;
+  width: 9rem;
+}
+
+.fields-icon-4 {
+  margin-left: 3rem;
 }
 
 .fields-icon > img {
@@ -34,5 +54,21 @@
 }
 
 .fields-link {
+  margin-top: 3rem;
   grid-column: 1/3;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: inline-block;
+  padding: 0.6rem;
+  text-align: center;
+  vertical-align: center;
+  line-height: normal;
+}
+
+.fields-link:hover {
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  letter-spacing: 0.15rem;
 }

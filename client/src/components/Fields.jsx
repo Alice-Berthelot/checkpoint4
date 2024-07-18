@@ -21,7 +21,7 @@ function Fields({ iconUrl, fields }) {
             <figcaption>{field.name}</figcaption>
           </figure>
         ))}
-        <Link to="/lawyers" className="button-secondary-color fields-link">
+        <Link to="/lawyers" className="fields-link">
           Voir nos équipes
         </Link>
       </article>

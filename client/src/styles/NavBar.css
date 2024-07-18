@@ -6,6 +6,7 @@ header {
 .header-active {
   position: absolute;
   top: 0;
+  width: 100%;
 }
 
 nav {
@@ -27,4 +28,13 @@ nav {
 
 .nav-active {
   color: var(--secondary-color);
+}
+
+.nav-home {
+  position: absolute;
+  right: 0;
+}
+
+.nav-home > .nav-normal {
+  color: var(--third-color);
 }

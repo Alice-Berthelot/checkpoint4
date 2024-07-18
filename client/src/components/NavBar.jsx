@@ -16,7 +16,7 @@ function NavBar() {
           className="logo-nav"
         />
       </NavLink>
-      <nav>
+      <nav className={selectedPage === "/" ? "nav-home" : ""}>
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "nav-active" : "nav-normal")}

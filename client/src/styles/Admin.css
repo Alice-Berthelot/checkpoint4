@@ -1,34 +1,3 @@
-.admin-cards-section {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 2rem auto 3rem auto;
-}
-
-.admin-cards {
-  width: 14rem;
-  padding: 3rem;
-  border: 1px solid var(--secondary-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
-}
-
-.admin-cards:hover {
-  transition-duration: 0.8s;
-  transition-timing-function: ease;
-  margin-top: -1rem;
-  box-shadow: 0px 1rem 1rem 0.5rem rgb(28, 31, 40, 0.3);
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
 .admin-main-title {
   margin: 1rem 2rem 3rem 2.5rem;
 }
@@ -61,4 +30,89 @@
   padding: 0.4rem 3rem;
   text-align: center;
   cursor: pointer;
+}
+
+.admin-cards-section {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem auto 3rem auto;
+}
+
+.admin-cards,
+.admin-cards-confirmed {
+  width: 25rem;
+  padding: 3rem;
+  border: 1px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.admin-cards-confirmed {
+  background-color: var(--secondary-color);
+}
+
+.admin-cards:hover,
+.admin-cards-confirmed:hover {
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+  margin-top: -1rem;
+  box-shadow: 0px 1rem 1rem 0.5rem rgb(28, 31, 40, 0.3);
+  cursor: pointer;
+}
+
+.admin-cards > p,
+.admin-cards-confirmed > p {
+  line-height: 1.5rem;
+  color: var(--primary-color);
+}
+
+.admin-cards > p:first-of-type,
+.admin-cards-confirmed > p:first-of-type {
+  font-weight: 600;
+}
+
+.admin-cards > p:last-of-type,
+.admin-cards-confirmed > p:last-of-type {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.admin-section-forms > form > button {
+  all: unset;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 8rem;
+}
+
+.admin-section-forms > form > button:first-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.admin-section-forms > form > button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.admin-cards-confirmed > .admin-section-forms > form > button {
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+
+.admin-confirmed-sentence {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
 }
