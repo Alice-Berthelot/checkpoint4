@@ -1,0 +1,24 @@
+.appointment-section {
+  background-image: url("../assets/images/codes.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 7rem 0;
+}
+
+.appointment-article {
+  background-color: rgba(28, 31, 40, 0.85);
+  margin: 10rem auto;
+  width: 80%;
+  padding: 4rem;
+  color: var(--third-color);
+}
+
+.appointment-subtitle {
+  margin-bottom: 2rem;
+}
+
+.appointment-form {
+  margin-top: 2rem;
+}

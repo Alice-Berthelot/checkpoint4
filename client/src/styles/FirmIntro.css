@@ -1,0 +1,56 @@
+.firm-intro-section {
+  margin-top: 10.5rem;
+}
+
+.firm-intro-article {
+  background-color: var(--primary-color);
+  padding: 5rem 3rem 5rem 6rem;
+}
+
+.firm-intro-article > p {
+  color: var(--third-color);
+  margin-top: 3rem;
+  text-align: justify;
+}
+
+.firm-intro-article > p:first-of-type {
+  margin-top: 3rem;
+  width: 35%;
+}
+
+.firm-intro-article > p:nth-of-type(2) {
+  margin-left: 50rem;
+  margin-top: -8rem;
+  width: 36%;
+}
+
+.firm-intro-picture {
+  width: 40rem;
+  margin-left: 10rem;
+  margin-top: -12rem;
+}
+
+.animated-number {
+  font-family: var(--primary-font-heavy);
+  color: rgb(213, 179, 95, 0.5);
+  font-size: 7rem;
+}
+
+.statistics-article {
+  margin: 4rem auto 6rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 7rem;
+}
+
+.statistics-article > figure {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.statistics-article > figure > figcaption {
+  font-weight: 600;
+  margin-top: -5.2rem;
+}

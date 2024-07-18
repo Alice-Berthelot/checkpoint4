@@ -1,0 +1,17 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+}
+
+.logo-footer {
+  width: 7rem;
+}
+
+footer > p {
+  color: var(--third-color);
+  font-size: 0.7rem;
+}

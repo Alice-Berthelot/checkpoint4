@@ -1,0 +1,36 @@
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+h1 {
+  background-image: url("../assets/images/mainpicture.webp");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  padding: 30rem 0 0 2rem;
+}
+
+.tagline {
+  margin-top: -13rem;
+  color: var(--third-color);
+  font-size: 1.6rem;
+  padding-left: 2.5rem;
+}
+
+.arrow-scroll-down {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  width: 2rem;
+  text-align: center;
+  height: auto;
+  animation: bounce 3.5s infinite;
+}

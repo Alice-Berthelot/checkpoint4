@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-active {
+  position: absolute;
+  top: 0;
+}
+
+nav {
+  margin-right: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  background-color: transparent;
+  font-weight: 600;
+}
+
+.logo-nav {
+  width: 6rem;
+}
+
+.nav-normal {
+  color: var(--primary-color);
+}
+
+.nav-active {
+  color: var(--secondary-color);
+}
