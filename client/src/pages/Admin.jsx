@@ -5,9 +5,9 @@ import "../styles/Admin.css";
 function Admin() {
   const appointments = useLoaderData();
 
-  // const sortedAppointments = appointments.sort((a, b) => {
-  //   return (a.status === "confirmed") - (b.status === "confirmed");
-  // });
+  const sortedAppointments = appointments.sort(
+    (a, b) => (a.status === "confirmed") - (b.status === "confirmed")
+  );
 
   const [selectedField, setSelectedField] = useState("");
   const [activeButton, setActiveButton] = useState(null);
@@ -48,7 +48,7 @@ function Admin() {
         ))}
       </section>
       <section className="admin-cards-section">
-        {appointments
+        {sortedAppointments
           .filter(
             (appointment) =>
               selectedField === "" || appointment.field_name === selectedField
@@ -74,7 +74,7 @@ function Admin() {
                 Client : {appointment.client_firstname}{" "}
                 {appointment.client_lastname}
               </p>
-              <p>Note : {appointment.note}</p>
+              <p>{appointment.note && `Note : ${appointment.note}`}</p>
               <section className="admin-section-forms">
                 {appointment.status !== "confirmed" && (
                   <Form method="put">
