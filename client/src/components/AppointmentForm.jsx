@@ -11,18 +11,21 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
-    if (selectedLawyer) {
-      const filteredTimeSlots = timeSlots.filter((timeSlot) => {
-        if (selectedField) {
-          return timeSlot.lawyer_id === parseInt(selectedLawyer, 10);
-        }
-
-        return timeSlot.lawyer_id === parseInt(selectedLawyer, 10);
-      });
-      setAvailableTimeSlots(filteredTimeSlots);
+    let filteredTimeSlots = [];
+    if (selectedLawyer && selectedLawyer !== "650") {
+      filteredTimeSlots = timeSlots.filter(
+        (timeSlot) => timeSlot.lawyer_id === parseInt(selectedLawyer, 10)
+      );
+    } else if (selectedLawyer === "650" && selectedField) {
+      filteredTimeSlots = timeSlots.filter((timeSlot) =>
+        lawyers.includes(timeSlot.lawyer_id)
+      );
     } else {
-      setAvailableTimeSlots([]);
+      filteredTimeSlots = timeSlots.filter(
+        (timeSlot) => timeSlot.field_id === parseInt(selectedField, 10)
+      );
     }
+    setAvailableTimeSlots(filteredTimeSlots);
   }, [selectedField, selectedLawyer, timeSlots]);
 
   const handleLawyerChange = (event) => {
@@ -48,9 +51,7 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
 
   const handleFieldChange = (e) => {
     const fieldId = e.target.value;
-    if (selectedLawyer === "650") {
-      setSelectedField(fieldId);
-    }
+    setSelectedField(fieldId);
   };
 
   const handleClick = () => {
@@ -118,12 +119,12 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
                 <option value="650">Non</option>
                 {lawyers.map((lawyer) => (
                   <option key={lawyer.id} value={lawyer.id}>
-                    Maître {lawyer.lastname}
+                    Maître {lawyer.firstname} {lawyer.lastname}
                   </option>
                 ))}
               </select>
 
-              <label htmlFor="field">Domaine d'expertise</label>
+              <label htmlFor="field">Domaine d'expertise *</label>
               <select
                 id="field"
                 name="field"
@@ -176,6 +177,7 @@ AppointmentForm.propTypes = {
   lawyers: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
+      firstname: PropTypes.string.isRequired,
       lastname: PropTypes.string.isRequired,
       field_id: PropTypes.number.isRequired,
     })
@@ -185,6 +187,7 @@ AppointmentForm.propTypes = {
       id: PropTypes.number.isRequired,
       datetime: PropTypes.string.isRequired,
       lawyer_id: PropTypes.number.isRequired,
+      field_id: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

@@ -8,7 +8,7 @@ class ClientRepository extends AbstractRepository {
   async create(client) {
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, phone_number, lawyer_id) VALUES (?, ?, ?, ?, ?)`,
-      [client.firstname, client.lastname, client.email, client.phone_number, client.lawyer_id]
+      [client.firstname, client.lastname, client.email, client.phoneNumber, client.lawyer_id]
     );
 
     return result.insertId;
