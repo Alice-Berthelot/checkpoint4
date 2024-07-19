@@ -69,9 +69,16 @@
 }
 
 .admin-cards > p,
-.admin-cards-confirmed > p {
+.admin-cards > a,
+.admin-cards-confirmed > p,
+.admin-cards-confirmed > a {
   line-height: 1.5rem;
   color: var(--primary-color);
+}
+
+.admin-cards > a,
+.admin-cards-confirmed > a {
+  text-decoration: underline;
 }
 
 .admin-cards > p:first-of-type,
@@ -81,6 +88,7 @@
 
 .admin-cards > p:last-of-type,
 .admin-cards-confirmed > p:last-of-type {
+  margin-top: -2rem;
   font-size: 0.9rem;
   font-style: italic;
 }
@@ -114,5 +122,5 @@
 .admin-confirmed-sentence {
   font-size: 1.2rem;
   font-weight: 800;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }

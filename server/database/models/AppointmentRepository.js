@@ -16,6 +16,8 @@ class AppointmentRepository extends AbstractRepository {
     c.id AS client_id,
     c.firstname AS client_firstname,
     c.lastname AS client_lastname,
+    c.email AS client_email,
+    c.phone_number AS client_tel,
     l.firstname AS lawyer_firstname,
     l.lastname AS lawyer_lastname,
     ts.id AS time_slot_id,

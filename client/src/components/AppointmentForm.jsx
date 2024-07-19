@@ -8,6 +8,7 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
   const [automaticField, setAutomaticField] = useState("");
   const [selectedField, setSelectedField] = useState("");
   const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
     if (selectedLawyer) {
@@ -52,6 +53,10 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
     }
   };
 
+  const handleClick = () => {
+    setShowConfirmation(true);
+  };
+
   return (
     <section className="appointment-section">
       <article className="appointment-article">
@@ -63,7 +68,7 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
           remplissant le formulaire ci-dessous. Vous recevrez un e-mail de
           confirmation après validation par nos équipes.
         </p>
-        <Form method="POST" className="appointment-form">
+        <Form method="POST" className="appointment-form" onSubmit={handleClick}>
           <article>
             <fieldset>
               <label htmlFor="firstname">Prénom *</label>
@@ -151,6 +156,11 @@ function AppointmentForm({ fields, lawyers, timeSlots }) {
           </article>
           <button type="submit">Envoyer</button>
         </Form>
+        {showConfirmation === true && (
+          <p className="confirmation-sending">
+            Votre demande de consultation a bien été envoyée
+          </p>
+        )}
       </article>
     </section>
   );

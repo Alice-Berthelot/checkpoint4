@@ -74,6 +74,15 @@ function Admin() {
                 Client : {appointment.client_firstname}{" "}
                 {appointment.client_lastname}
               </p>
+              <a
+                href={`mailto:${appointment.client_email}?subject=Cabinet Girondin Avocats&body=Bonjour ${appointment.client_firstname}  ${appointment.client_lastname}, Nous avons bien reçu votre demande de consultation et aurions besoin de quelques précisions pour pouvoir la valider. Cordialement, L'équipe du Cabinet Girondin Avocats`}
+              >
+                Envoyer un email
+              </a>
+              <p>
+                {appointment.client_tel &&
+                  `Téléphone : ${appointment.client_tel}`}
+              </p>
               <p>{appointment.note && `Note : ${appointment.note}`}</p>
               <section className="admin-section-forms">
                 {appointment.status !== "confirmed" && (
